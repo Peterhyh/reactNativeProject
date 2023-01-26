@@ -1,7 +1,10 @@
-import Main from './screens/MainComponent';
+import * as React from 'react';
+import MainContainer from './screens/MainComponent';
 
-export default function App() {
-  return <Main />;
+function App() {
+  return (
+    <MainContainer />
+  );
 }
 
-
+export default App;
