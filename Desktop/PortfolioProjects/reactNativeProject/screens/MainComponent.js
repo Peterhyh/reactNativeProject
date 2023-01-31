@@ -1,60 +1,71 @@
 import * as React from 'react';
-
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// Screens
 import HomeScreen from './features/HomeScreen';
-import DetailsScreen from './features/DetailsScreen';
-import PhotoScreen from './features/PhotoScreen';
-
-//Screen names
-const homeName = "Home";
-const detailsName = "Details";
-const photoName = "Photos";
-
+import FriendsScreen from './features/FriendsScreen';
+import ProfileScreen from './features/ProfileScreen';
+import SearchScreen from './features/SearchScreen';
+import CameraScreen from './features/CameraScreen';
 
 const Tab = createBottomTabNavigator();
 
 function MainContainer() {
     return (
-        <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName={homeName}
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        let rn = route.name;
+        <Tab.Navigator
+            initialRouteName='Home'
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+                    let rn = route.name;
 
-                        if (rn === homeName) {
-                            iconName = focused ? 'home' : 'home-outline';
+                    if (rn === 'Home') {
+                        iconName = focused ? 'home-outline' : 'home-outline';
+                    }
+                    else if (rn === 'Friends') {
+                        iconName = focused ? 'people-outline' : 'people-outline';
+                    }
+                    else if (rn === 'Profile') {
+                        iconName = focused ? 'person-circle-outline' : 'person-circle-outline';
+                    }
+                    else if (rn === 'Search') {
+                        iconName = focused ? 'search-outline' : 'search-outline';
+                    }
+                    else if (rn === 'Camera') {
+                        iconName = focused ? 'camera-outline' : 'camera-outline';
+                    }
+                    return (
+                        <Ionicons name={iconName} size={size} color={color} />
+                    );
+                },
+            })}
+            tabBarOptions={{
+                activeTintColor: 'white',
+                inactiveTintColor: 'grey',
+                labelStyle: { paddingBottom: 10, fontSize: 10 },
+                style: { padding: 10, height: 100, backgroundColor: '#1E1E1E' }
+            }}>
 
-                        } else if (rn === detailsName) {
-                            iconName = focused ? 'list' : 'list-outline';
-
-                        } else if (rn === photoName) {
-                            iconName = focused ? 'photos' : 'photos-outline';
-                        }
-
-                        // You can return any component that you like here!
-                        return <Ionicons name={iconName} size={size} color={color} />;
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: 'grey',
-                    labelStyle: { paddingBottom: 10, fontSize: 10 },
-                    style: { padding: 10, height: 100, backgroundColor: '#1E1E1E' }
-                }}>
-
-                <Tab.Screen name={homeName} component={HomeScreen} />
-                <Tab.Screen name={detailsName} component={DetailsScreen} />
-                <Tab.Screen name={photoName} component={PhotoScreen} />
-
-            </Tab.Navigator>
-        </NavigationContainer>
-
+            <Tab.Screen
+                name='Home'
+                component={HomeScreen}
+            />
+            <Tab.Screen
+                name='Search'
+                component={SearchScreen}
+            />
+            <Tab.Screen
+                name='Camera'
+                component={CameraScreen}
+            />
+            <Tab.Screen
+                name='Friends'
+                component={FriendsScreen}
+            />
+            <Tab.Screen
+                name='Profile'
+                component={ProfileScreen}
+            />
+        </Tab.Navigator>
     );
 }
 

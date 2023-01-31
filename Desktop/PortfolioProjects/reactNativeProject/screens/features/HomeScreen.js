@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+const HomeScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#252526' }}>
             <Text
@@ -9,4 +9,6 @@ export default function HomeScreen({ navigation }) {
                 style={{ fontSize: 26, fontWeight: 'bold', color: 'white' }}>Home Screen</Text>
         </View>
     );
-}
+};
+
+export default HomeScreen;
