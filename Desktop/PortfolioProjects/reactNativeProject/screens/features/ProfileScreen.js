@@ -35,7 +35,7 @@ const ProfileScreen = () => {
 
 
     return (
-        <ScrollView style={{ backgroundColor: '#121212' }}>
+        <ScrollView style={{ backgroundColor: '#252526' }}>
             <DisplayItem item={firstPic} />
             <DisplayItem item={secondPic} />
             <DisplayItem item={thirdPic} />
