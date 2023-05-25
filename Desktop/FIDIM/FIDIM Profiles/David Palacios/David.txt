@@ -1,0 +1,3 @@
+1. First name: David
+2. Last name: Palacios
+4. Bio: 29 yrs old Electronic engineer, with experience in web development and hardware design. Worked in projects related to computer vision, AI, facial recognition, web scrapping and biometrics. Currently working as a full stack developer at  Vue Data Technologies, using Node JS and React JS.
